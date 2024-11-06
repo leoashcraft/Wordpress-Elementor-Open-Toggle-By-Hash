@@ -1,15 +1,26 @@
-function openToggleByHash() {
+document.addEventListener("DOMContentLoaded", function() {
+    const idMap = {};
+
     const toggleContainers = document.querySelectorAll(".elementor-toggle");
 
     toggleContainers.forEach(toggleContainer => {
         const toggleItems = toggleContainer.querySelectorAll(".elementor-tab-title");
 
         toggleItems.forEach(item => {
-            const sanitizedId = item.textContent
+            let sanitizedId = item.textContent
                 .trim()
                 .toLowerCase()
+                .replace(/^[\d\s-]+/, "")
                 .replace(/[^a-z0-9\s-]/g, "")
                 .replace(/\s+/g, "-");
+
+            if (idMap[sanitizedId]) {
+                let counter = idMap[sanitizedId] + 1;
+                idMap[sanitizedId] = counter;
+                sanitizedId = `${sanitizedId}-${counter}`;
+            } else {
+                idMap[sanitizedId] = 1;
+            }
 
             item.id = sanitizedId;
 
@@ -22,7 +33,6 @@ function openToggleByHash() {
                     }
                 });
 
-                // Open the toggle item if it's not already active
                 if (!item.classList.contains("elementor-active")) {
                     item.classList.add("elementor-active");
                     const contentPanel = item.nextElementSibling;
@@ -34,7 +44,4 @@ function openToggleByHash() {
             }
         });
     });
-}
-
-document.addEventListener("DOMContentLoaded", openToggleByHash);
-window.addEventListener("hashchange", openToggleByHash);
+});
