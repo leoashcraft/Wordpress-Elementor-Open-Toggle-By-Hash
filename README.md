@@ -54,7 +54,7 @@ To get functionality up and running follow these simple steps.
 ## Installation
 
 1. Download this file
-2. lace it in your theme's js folder. 
+2. Place it in your theme's js folder. 
 3. Look for this line of code within your theme's functions.php where [YOUR-THEME-NAME] could either be the theme name or something else entirely. The key here is the find a function thathas enqueue_scripts within it's name.
    If you don't find it, that's alright, keep reading.
 
