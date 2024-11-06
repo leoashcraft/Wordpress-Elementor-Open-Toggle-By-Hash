@@ -28,16 +28,16 @@ This script also accounts for:
 * Leading numbers
     - HTML IDs must start with a letter, so numbers are stripped.
         - Example:
-            - 1 - Details would become details
+            - 1 - Details would become #details
 * Special characters
     - Special characters are stripped and even though underscores, colons, and periods are allowed in HTML IDs, for consistency and simplicity, they are stripped.
         - Example:
-            - 1 - Details: Event_Intro Message would become details-event-intro-message
+            - 1 - Details: Event_Intro Message would become #details-event-intro-message
 * Duplicates
     - HTML IDs must be unique to work. After stripping occurs, if there are duplicates, a number will be appended.
         - Exmaple:
-            - 1 - Details: Event_Intro Message appears in Toggle 1 would become details-event-intro-message-1
-            - 1 - Details: Event_Intro Message appears in Toggle 2 would become details-event-intro-message-2
+            - 1 - Details: Event_Intro Message appears in Toggle 1 would become #details-event-intro-message-1
+            - 1 - Details: Event_Intro Message appears in Toggle 2 would become #details-event-intro-message-2
 
 ## Getting Started
 
